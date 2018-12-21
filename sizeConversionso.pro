@@ -77,9 +77,9 @@ CONFIG(debug, debug|release){
 QMAKE_CXXFLAGS_DEBUG -= -g
 QMAKE_CXXFLAGS_DEBUG += -pedantic -Wall -Wextra -g3
 
-#if not win32, add flto, mingw (on msys2) can't handle lto, CXXFLAGS
+#CXXFLAGS
 linux:QMAKE_CXXFLAGS_RELEASE += -flto=jobserver
-#win32:QMAKE_CXXFLAGS_RELEASE += -flto
+win32:QMAKE_CXXFLAGS_RELEASE += -flto
 !android:QMAKE_CXXFLAGS_RELEASE += -mtune=sandybridge
 
 #for -flto=jobserver in the link step to work with -jX
@@ -87,8 +87,8 @@ linux:!android:QMAKE_LINK = +g++
 
 linux:QMAKE_LFLAGS += -fuse-ld=gold
 QMAKE_LFLAGS_RELEASE += -fvisibility=hidden
-#if not win32, add flto, mingw (on msys2) can't handle lto, LFLAGS
+#LFLAGS
 linux:QMAKE_LFLAGS_RELEASE += -flto=jobserver
-#win32:QMAKE_LFLAGS_RELEASE += -flto
+win32:QMAKE_LFLAGS_RELEASE += -flto
 
 
