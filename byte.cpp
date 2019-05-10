@@ -7,9 +7,6 @@
 #include <sstream>
 #endif
 
-namespace eines
-{
-
 #ifdef __ANDROID__
 
 template <typename T>
@@ -77,4 +74,3 @@ std::string formatByteSizeValue_f(const uint_fast64_t value_par, const int after
     return resultStr;
 }
 
-}
