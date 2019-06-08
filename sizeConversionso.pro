@@ -1,5 +1,5 @@
 #message($$QMAKESPEC)
-QT -= gui core
+QT -= gui
 
 TARGET = sizeConversionso
 TEMPLATE = lib
